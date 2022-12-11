@@ -2,147 +2,155 @@
 
 using Branching.Tasks;
 
-WriteLine("*** FIRST TASK ***");
-FirstTask();
+namespace Branching;
 
-WriteLine("*** SECOND TASK ***");
-SecondTask();
-
-WriteLine("*** THIRD TASK ***");
-ThirdTask();
-
-WriteLine("*** FOURTH TASK ***");
-FourthTask();
-
-WriteLine("*** FIFTH TASK ***");
-FifthTask();
-
-WriteLine("*** SIXTH TASK ***");
-SixthTask();
-
-WriteLine("*** SEVENTH TASK ***");
-SeventhTask();
-
-
-void FirstTask()
+public static class Program 
 {
-    Write("Enter the start point: ");
-    var startPoint = ReadLine();
+    public static void Main()
+    {
+        WriteLine("*** FIRST TASK ***");
+        FirstTask();
 
-    Write("Enter the end point: ");
-    var endPoint = ReadLine();
+        WriteLine("*** SECOND TASK ***");
+        SecondTask();
 
-    var task = new First(startPoint!);
+        WriteLine("*** THIRD TASK ***");
+        ThirdTask();
 
-    WriteLine(task.Solve(endPoint!));
-}
+        WriteLine("*** FOURTH TASK ***");
+        FourthTask();
 
-void SecondTask()
-{
-    WriteLine("Enter the sides og the timber (x, y, z):");
-    var x = int.Parse(ReadLine()!);
-    var y = int.Parse(ReadLine()!);
-    var z = int.Parse(ReadLine()!);
-    var timber = new Timber(x, y, z);
+        WriteLine("*** FIFTH TASK ***");
+        FifthTask();
 
-    WriteLine("Enter the sides of the hole:");
-    var a = int.Parse(ReadLine()!);
-    var b = int.Parse(ReadLine()!);
-    var hole = new Hole(a, b);
+        WriteLine("*** SIXTH TASK ***");
+        SixthTask();
 
-    var task = new Second(timber, hole);
+        WriteLine("*** SEVENTH TASK ***");
+        SeventhTask();
+    }
 
-    WriteLine(task.Solve());
-}
 
-void ThirdTask()
-{
-    Write("Enter the current ticket number: ");
-    var ticketNumber = int.Parse(ReadLine()!);
+    private static void FirstTask()
+    {
+        Write("Enter the start point: ");
+        var startPoint = ReadLine();
 
-    var task = new Third(ticketNumber);
+        Write("Enter the end point: ");
+        var endPoint = ReadLine();
 
-    WriteLine(task.Solve());
-}
+        var task = new First(startPoint!);
 
-void FourthTask()
-{
-    WriteLine("Enter the points of lines:");
+        WriteLine(task.Solve(endPoint!));
+    }
 
-    Write("\tA: ");
-    var a = int.Parse(ReadLine()!);
-    Write("\tB: ");
-    var b = int.Parse(ReadLine()!);
+    private static void SecondTask()
+    {
+        WriteLine("Enter the sides og the timber (x, y, z):");
+        var x = int.Parse(ReadLine()!);
+        var y = int.Parse(ReadLine()!);
+        var z = int.Parse(ReadLine()!);
+        var timber = new Timber(x, y, z);
 
-    Write("\tC: ");
-    var c = int.Parse(ReadLine()!);
-    Write("\tD: ");
-    var d = int.Parse(ReadLine()!);
+        WriteLine("Enter the sides of the hole:");
+        var a = int.Parse(ReadLine()!);
+        var b = int.Parse(ReadLine()!);
+        var hole = new Hole(a, b);
 
-    var firstLine = (a, b);
-    var secondLine = (c, d);
+        var task = new Second(timber, hole);
 
-    var task = new Fourth(firstLine, secondLine);
-    WriteLine(task.Solve());
-}
+        WriteLine(task.Solve());
+    }
 
-void FifthTask()
-{
-    WriteLine("Enter the distance to area, length of segment and time to overcome a segment divided by spaces:");
-    var data = ReadLine()!;
+    private static void ThirdTask()
+    {
+        Write("Enter the current ticket number: ");
+        var ticketNumber = int.Parse(ReadLine()!);
 
-    var arrayedData = data.Split(' ');
-    var distanceToArea = double.Parse(arrayedData[0]);
-    var segmentLength = double.Parse(arrayedData[1]);
-    var segmentTime = int.Parse(arrayedData[2]);
+        var task = new Third(ticketNumber);
 
-    var task = new Fifth(distanceToArea, segmentLength, segmentTime);
-    WriteLine(task.Solve());
-}
+        WriteLine(task.Solve());
+    }
 
-void SixthTask()
-{
-    WriteLine("Enter the first point:");
+    private static void FourthTask()
+    {
+        WriteLine("Enter the points of lines:");
 
-    Write("\tA: ");
-    var a = int.Parse(ReadLine()!);
-    Write("\tB: ");
-    var b = int.Parse(ReadLine()!);
+        Write("\tA: ");
+        var a = int.Parse(ReadLine()!);
+        Write("\tB: ");
+        var b = int.Parse(ReadLine()!);
 
-    var firstPoint = (a, b);
+        Write("\tC: ");
+        var c = int.Parse(ReadLine()!);
+        Write("\tD: ");
+        var d = int.Parse(ReadLine()!);
 
-    WriteLine("Enter the second point:");
+        var firstLine = (a, b);
+        var secondLine = (c, d);
 
-    Write("\tA: ");
-    a = int.Parse(ReadLine()!);
-    Write("\tB: ");
-    b = int.Parse(ReadLine()!);
+        var task = new Fourth(firstLine, secondLine);
+        WriteLine(task.Solve());
+    }
 
-    var secondPoint = (a, b);
+    private static void FifthTask()
+    {
+        WriteLine("Enter the distance to area, length of segment and time to overcome a segment divided by spaces:");
+        var data = ReadLine()!;
 
-    WriteLine("Enter the third point:");
+        var arrayedData = data.Split(' ');
+        var distanceToArea = double.Parse(arrayedData[0]);
+        var segmentLength = double.Parse(arrayedData[1]);
+        var segmentTime = int.Parse(arrayedData[2]);
 
-    Write("\tA: ");
-    a = int.Parse(ReadLine()!);
-    Write("\tB: ");
-    b = int.Parse(ReadLine()!);
+        var task = new Fifth(distanceToArea, segmentLength, segmentTime);
+        WriteLine(task.Solve());
+    }
 
-    var thirdPoint = (a, b);
+    private static void SixthTask()
+    {
+        WriteLine("Enter the first point:");
 
-    var task = new Sixth(firstPoint, secondPoint, thirdPoint);
-    WriteLine(task.Solve());
-}
+        Write("\tA: ");
+        var a = int.Parse(ReadLine()!);
+        Write("\tB: ");
+        var b = int.Parse(ReadLine()!);
 
-void SeventhTask()
-{
-    WriteLine("Enter the movie rating, rating downgrade to and amount of reviewers:");
-    var data = ReadLine()!;
+        var firstPoint = (a, b);
 
-    var arrayedData = data.Split(' ');
-    var movieRating = double.Parse(arrayedData[0]);
-    var ratingDowngradeTo = double.Parse(arrayedData[1]);
-    var reviewersCount = int.Parse(arrayedData[2]);
+        WriteLine("Enter the second point:");
 
-    var task = new Seventh(movieRating, reviewersCount);
-    WriteLine(task.Solve(ratingDowngradeTo));
+        Write("\tA: ");
+        a = int.Parse(ReadLine()!);
+        Write("\tB: ");
+        b = int.Parse(ReadLine()!);
+
+        var secondPoint = (a, b);
+
+        WriteLine("Enter the third point:");
+
+        Write("\tA: ");
+        a = int.Parse(ReadLine()!);
+        Write("\tB: ");
+        b = int.Parse(ReadLine()!);
+
+        var thirdPoint = (a, b);
+
+        var task = new Sixth(firstPoint, secondPoint, thirdPoint);
+        WriteLine(task.Solve());
+    }
+
+    private static void SeventhTask()
+    {
+        WriteLine("Enter the movie rating, rating downgrade to and amount of reviewers:");
+        var data = ReadLine()!;
+
+        var arrayedData = data.Split(' ');
+        var movieRating = double.Parse(arrayedData[0]);
+        var ratingDowngradeTo = double.Parse(arrayedData[1]);
+        var reviewersCount = int.Parse(arrayedData[2]);
+
+        var task = new Seventh(movieRating, reviewersCount);
+        WriteLine(task.Solve(ratingDowngradeTo));
+    }
 }
