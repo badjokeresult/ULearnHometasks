@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <Folder Include="BranchingTasks" />
+      <Folder Include="LoopsTasks" />
     </ItemGroup>
 
 </Project>
